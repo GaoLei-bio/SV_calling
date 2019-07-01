@@ -1,6 +1,6 @@
 ####################################################################
 # Version 1.0
-# 06/27/2019
+# 07/01/2019
 # This pipeline is used to detect structural variations (SVs) between 2 genomes.
 # Step 1. Genome alignment 			Using minimap2
 # Step 2. Unique anchor detection		Using Assemblytics implemented in RaGOO
