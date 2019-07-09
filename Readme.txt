@@ -17,7 +17,7 @@
 
 ####################################################################
 Command:
-    bash SV_pipeline.sh  <Reference_genome_file>   <Query_genome_file>  <Prefix_for_outputs> <number of threads>
+    bash SV_pipeline_2.sh  <Reference_genome_file>   <Query_genome_file>  <Prefix_for_outputs> <number of threads>
 
 
 For example: 
