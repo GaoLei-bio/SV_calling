@@ -1,3 +1,4 @@
+# By Lei Gao
 # genome
 ln -s /data/lei/Tomato_genomes/00_Genome/SL4.0.genome.fasta .
 ln -s /data/lei/Tomato_genomes/00_Genome/Pimp_v1.4.fasta .

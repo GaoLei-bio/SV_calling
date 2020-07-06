@@ -1,3 +1,4 @@
+# By Lei Gao
 # genome
 ln -s path_to_genome/SL4.0.genome.fasta .
 ln -s path_to_genome/Pimp_v1.4.fasta .

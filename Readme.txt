@@ -1,4 +1,6 @@
 ####################################################################
+SV calling scripts
+By Lei Gao
 Version 1.1
 Date: 07/04/2020
 This pipeline is designed to detect structural variations (SVs) between high-quality genomes of 2 closely related species/variaties.

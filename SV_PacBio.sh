@@ -1,4 +1,4 @@
-
+# By Lei Gao
 # Final genome comparison SV list
 #  $prefix.NR.bed
 path_to_SV_calling_script=$1

@@ -1,5 +1,51 @@
 """
+By Lei Gao
+usage: Merge_SVs_strict.py [-h] --Within WITHIN --Bad_within BAD_WITHIN
+                           --My_between MY_BETWEEN --Raw_between RAW_BETWEEN
+                           --Raw_unique_anchor RAW_UNIQUE_ANCHOR
+                           --My_same_chr_anchor MY_SAME_CHR_ANCHOR
+                           --ref_genome REF_GENOME --query_genome QUERY_GENOME
+                           --Input_bam INPUT_BAM --Rev_bam REV_BAM --Reads_bam
+                           READS_BAM --Rev_Reads_bam REV_READS_BAM
+                           --Ref_self_bam REF_SELF_BAM --Query_self_bam
+                           QUERY_SELF_BAM --Output_SV OUTPUT_SV
 
+optional arguments:
+  -h, --help            show this help message and exit
+  --Within WITHIN       SVs within alignments. $prefix.a$Anchor.b$Between.vari
+                        ants_within_alignments.bed
+  --Bad_within BAD_WITHIN
+                        SVs within the anchors only unique in Assemblytics
+                        outputs. $prefix.a$Anchor.raw_uniqye_only.variants_wit
+                        hin_alignments.bed
+  --My_between MY_BETWEEN
+                        SVs between alignments by my scripts. $prefix.a$Anchor
+                        .b$Between.my_same_chr_between_anchor.bed
+  --Raw_between RAW_BETWEEN
+                        SVs between alignments by Assemblytics. $prefix.a$Anch
+                        or.b$Between.variants_between_alignments.bed
+  --Raw_unique_anchor RAW_UNIQUE_ANCHOR
+                        Unique anchors found by Assemblytics.
+                        $prefix.a$Anchor.coords.tab
+  --My_same_chr_anchor MY_SAME_CHR_ANCHOR
+                        The anchors used for my between SV calling.
+  --ref_genome REF_GENOME
+                        Reference genome.
+  --query_genome QUERY_GENOME
+                        Query genome.
+  --Input_bam INPUT_BAM
+                        Bam file. Align Query to Reference genome.
+  --Rev_bam REV_BAM     Bam file. Align Reference to Query genome.
+  --Reads_bam READS_BAM
+                        Bam file. Align Query reads to Reference genome.
+  --Rev_Reads_bam REV_READS_BAM
+                        Bam file. Align Reference reads to Query genome.
+  --Ref_self_bam REF_SELF_BAM
+                        Bam file. Align Reference reads to Reference genome.
+  --Query_self_bam QUERY_SELF_BAM
+                        Bam file. Align Query reads to Query genome.
+  --Output_SV OUTPUT_SV
+                        Merged non-redundant SV list.
 
 """
 import argparse

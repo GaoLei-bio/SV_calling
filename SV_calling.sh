@@ -1,4 +1,4 @@
-
+# By Lei Gao
 path_to_SV_calling_script=$1
 reference=$2
 query=$3
