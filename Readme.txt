@@ -1,6 +1,7 @@
 ####################################################################
 SV calling scripts
-By Lei Gao
+By Lei Gao (lg397@cornell.edu or leigao@wbgcas.cn)
+Fei lab (http://bioinfo.bti.cornell.edu/)
 Version 1.1
 Date: 07/04/2020
 This pipeline is designed to detect structural variations (SVs) between high-quality genomes of 2 closely related species/variaties.
