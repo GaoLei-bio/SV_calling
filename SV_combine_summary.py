@@ -1,4 +1,5 @@
 """
+By Lei Gao
 usage: SV_combine_summary.py [-h] --bed_input BED_INPUT --tsv_out TSV_OUT
                              --Good_within GOOD_WITHIN --prefix PREFIX
 
@@ -11,7 +12,6 @@ optional arguments:
   --Good_within GOOD_WITHIN
                         My within SV list
   --prefix PREFIX       Prefix for output files.
-
 
 """
 import argparse

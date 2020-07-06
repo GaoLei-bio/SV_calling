@@ -1,4 +1,5 @@
 """
+By Lei Gao
 usage: Synteny_block.py [-h] --Input_coords INPUT_COORDS --Prefix PREFIX
 
 optional arguments:
@@ -8,6 +9,7 @@ optional arguments:
   --Prefix PREFIX       My SV list. (1) Get filtered unique anchors from
                         Input_coords; (2) Filter Input_SV by unique anchors;
                         (3) Derive INV, BND and DUP from unique anchors.
+
 
 """
 import argparse

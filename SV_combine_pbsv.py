@@ -1,4 +1,5 @@
 """
+By Lei Gao
 usage: SV_combine_pbsv.py [-h] --SV_file SV_FILE --anchor_file ANCHOR_FILE
                           --ref_genome REF_GENOME --query_genome QUERY_GENOME
                           --ref_pbsv REF_PBSV --query_pbsv QUERY_PBSV
@@ -29,6 +30,7 @@ optional arguments:
                         The size for flanking regions for blast check.
   --temp_dir TEMP_DIR   Temporary directory for flanking fasta seqs.
   --prefix PREFIX       Prefix for output files.
+
 
 """
 import argparse

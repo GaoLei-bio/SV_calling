@@ -1,4 +1,16 @@
 """
+By Lei Gao
+usage: Get_uncombined_between_SV_back.py [-h] --Raw_SVs RAW_SVS --Combined_NR
+                                         COMBINED_NR --Out_prefix OUT_PREFIX
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --Raw_SVs RAW_SVS     Raw SV list. Assemblytics format
+  --Combined_NR COMBINED_NR
+                        After combination of psbv. Formated for genotyping.
+  --Out_prefix OUT_PREFIX
+                        Prefix for output file.
+
 Keep:
 Within_only         SVs within alignments
 Redefined           The SVs between alignments and redefined by pbsv

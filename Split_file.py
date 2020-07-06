@@ -1,5 +1,17 @@
 """
+By Lei Gao
+usage: Split_file.py [-h] --Infile INFILE --Split_Number SPLIT_NUMBER
+                     --Suffix_length SUFFIX_LENGTH --Out_prefix OUT_PREFIX
 
+optional arguments:
+  -h, --help            show this help message and exit
+  --Infile INFILE       Input file
+  --Split_Number SPLIT_NUMBER
+                        Number of pieces you want to generate
+  --Suffix_length SUFFIX_LENGTH
+                        Generate suffixes of length N
+  --Out_prefix OUT_PREFIX
+                        prefix for output files
 
 """
 import argparse
