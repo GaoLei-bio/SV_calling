@@ -4,21 +4,21 @@ By Lei Gao (lg397@cornell.edu or leigao@wbgcas.cn)
 Fei lab (http://bioinfo.bti.cornell.edu/)
 Version 1.1
 Date: 07/04/2020
-This pipeline is designed to detect structural variations (SVs) between high-quality genomes of 2 closely related species/variaties.
-One is called Reference genome, the other one is Query genome.
+This pipeline is designed to detect structural variants (SVs) between high-quality genomes of two closely related species/varieties.
+One is called Reference genome, the other is Query genome.
 
 SV_calling.sh:
 Step 1. Genome alignment by minimap2	
 Step 2. Unique anchor/alignment detection
-Step 3. SV calling based on genome comparison, and then Filtering by illumina reads mapping 
+Step 3. SV calling based on genome comparison, and then filtering by Illumina read mapping 
 
 SV_PacBio.sh (Optional): 
-Step 4: Combining indels called by pacbio read mapping
+Step 4: Combining indels called by PacBio read mapping
 
 ####################################################################
 How to run:
 Please (1) copy all scripts to path_to_SV_calling_script (absolute path);
-       (2) put all inputs in current directory;
+       (2) put all inputs in working directory;
        (3) install all dependencies
 
 Step 1-3:
@@ -36,10 +36,11 @@ Step 1-3:
   Inputs:
      Reference_genome_file   Fasta format, see "Genome file format requirement" for detail
      Query_genome_file       Fasta format, see "Genome file format requirement" for detail
-     QryRead2Ref.bam         Sorted bam file, Query illumina reads on Reference genome
-     RefRead2Qry.bam         Sorted bam file, Reference illumina reads on Query genome
-     Ref_self.bam            Sorted bam file, Reference illumina reads on Reference genome
-     Qry_self.bam            Sorted bam file, Query illumina reads on Query genome
+     QryRead2Ref.bam         Sorted bam file, Query Illumina read alignments to Reference genome
+     RefRead2Qry.bam         Sorted bam file, Reference Illumina read alignments to Query genome
+     Ref_self.bam            Sorted bam file, Reference Illumina read alignments to Reference genome
+     Qry_self.bam            Sorted bam file, Query Illumina read alignments to Query genome
+     Note: the four bam files should be named to the ones exactly shown (QryRead2Ref.bam, RefRead2Qry.bam, Ref_self.bam, Qry_self.bam) and these bam files and the corresponding index files should be put in working directory.
 
   For example:
       bash path_to_SV_calling_script/SV_calling.sh \
@@ -51,7 +52,7 @@ Step 1-3:
 
   Final result for this example (Same SVs in 2 formats):
       SP2SL.Genome_comp_SV.tsv
-      SP2SL.NR.bed (Assemblytics output format. This one is input file for next step)
+      SP2SL.NR.bed (Assemblytics output format. This one is the input file for next step)
 
 ======================
 Step 4:
@@ -70,8 +71,8 @@ Step 4:
      Prefix_for_outputs.NR.bed      Result of SV_calling.sh
      Reference_genome_file          Fasta format
      Query_genome_file              Fasta format
-     Ref_base_pbsv_vcf              vcf file. SV calling by Query sample PacBio read alignments on Reference genome
-     Qry_base_pbsv_vcf              vcf file. SV calling by Reference sample PacBio read alignments on Query genome
+     Ref_base_pbsv_vcf              vcf file. SV calling based on Query PacBio read alignments to Reference genome by pbsv (https://github.com/PacificBiosciences/pbsv)
+     Qry_base_pbsv_vcf              vcf file. SV calling based on Reference PacBio read alignments to Query genome by pbsv (https://github.com/PacificBiosciences/pbsv)
  
 For example:
       bash path_to_SV_calling_script/SV_PacBio.sh \
@@ -107,13 +108,11 @@ Genome file format requirement:
 Note:
   1. SV_calling.sh
      1.1 This pipeline calls SVs based on the anchors identified by Assemblytics (https://pubmed.ncbi.nlm.nih.gov/27318204/).
-     1.2 Because the genome assembly may be incomplete, some unassembled regions might be identified as deletion. To avoid this mistake, this pipeline adopt illumina reads to filter detected SVs.
-         To do this, please align the illumina reads to the two reference genomes, respectively, by any read mapping program (e.g. bwa), and named the bam file as following.
-     1.3 It's a little tricky to set a proper max SV size. When we called a large deletion, we won't try to call any small indels in the "deleted" region. If this large deletion is wrong, we may miss real indels in that region. 
-         For Solanum pimpinellifolium project, I firstly run this pipeline allowing up to 5Mb indel, and then manually check the detected SVs > 1Mb. Then, I rerun the pipeline with max_SV_size = 1Mb and combined the resulted indels and the checked ones > 1Mb.
+     1.2 Because the genome assembly may be incomplete, some unassembled regions might be identified as deletion. To solve this issue, this pipeline uses Illumina reads to filter detected SVs.
+         To do this, please align the Illumina reads to the two reference genomes, respectively, by any read mapping program (e.g. bwa), and named the bam file as instructed in “How to run” section.
 
    2. SV_PacBio.sh
      If you have PacBio reads for the two genomes, you may call SVs using these reads, and combined the resulted SVs into the above genome comparison SVs. 
-     Pleae put the vcf files based the two genomes under working directory. A sample vcf file is provided (Example.vcf).
+     Please put the vcf files based on the two genomes under working directory. A sample vcf file is provided (Example.vcf).
 
 
